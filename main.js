@@ -9,46 +9,59 @@ const result = document.getElementById('result');
 // メイン処理
 async function checkTime() {
   // JSON 取得
-  const res = await fetch('timetable.json');
+  const res  = await fetch('timetable.json');
   const data = await res.json();
 
   const now = new Date();
-  // 平日 or 休日 の判定
-  const day = now.getDay(); // 0=日曜, 6=土曜
+  const day = now.getDay(); // 0=日曜,6=土曜
   const list = (day === 0 || day === 6) ? data.holiday : data.weekday;
 
-  // 次発を検索
-  let nextTrain = null;
-  for (let t of list) {
-    const [h,m] = t.split(':').map(Number);
-    const dep = new Date(now);
-    dep.setHours(h, m, 0, 0);
-    if (dep > now) { nextTrain = dep; break; }
-  }
+  // 1) 時刻文字列リスト → Dateオブジェクトの配列に変換
+  const times = list.map(t => {
+    const [h, m] = t.split(':').map(Number);
+    const d = new Date(now);
+    d.setHours(h, m, 0, 0);
+    return d;
+  });
 
+  // 2) 現在時刻より後のものだけを抽出
+  const upcoming = times.filter(d => d > now);
+
+  // 3) 先頭2つを取得
+  const nextTrain   = upcoming[0] || null;
+  const secondTrain = upcoming[1] || null;
+
+  // 終電ナシ
   if (!nextTrain) {
     result.textContent = '終電、なくなっちゃったね///';
     result.className = 'miss';
     return;
   }
 
-  // 時間差（ミリ秒）
-  const diffMs = nextTrain - now;
-  const diffMin = diffMs / 1000 / 60;
+  // 時差（分）
+  const diffMin = (nextTrain - now) / 1000 / 60;
 
-  // 判定
+  // メイン表示判定
   let text, cls;
   if (diffMin >= WALK_TIME) {
-    text = `あと ${diffMin.toFixed(1)}分 → 歩いておｋ (${formatTime(nextTrain)}発)`;
+    text = `あと ${diffMin.toFixed(1)}分 → 歩いておｋ`;
     cls = 'walk';
   }
   else if (diffMin >= RUN_TIME) {
-    text = `あと ${diffMin.toFixed(1)}分 → 走れ！!! (${formatTime(nextTrain)}発)`;
+    text = `あと ${diffMin.toFixed(1)}分 → 走れ！`;
     cls = 'run';
   }
   else {
-    text = `あと ${diffMin.toFixed(1)}分 → あきらめろ (${formatTime(nextTrain)}発)`;
+    text = `あと ${diffMin.toFixed(1)}分 → あきらめろ`;
     cls = 'miss';
+  }
+
+  // 発車時刻を追記
+  text += ` (${formatTime(nextTrain)}発)`;
+
+  // 次の次があれば追加表示
+  if (secondTrain) {
+    text += ` ／ 次の次 → ${formatTime(secondTrain)}`;
   }
 
   result.textContent = text;
