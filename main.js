@@ -39,15 +39,15 @@ async function checkTime() {
   // 判定
   let text, cls;
   if (diffMin >= WALK_TIME) {
-    text = `あと ${diffMin.toFixed(1)}分 → 歩いてOK！ (${formatTime(nextTrain)}発)`;
+    text = `あと ${diffMin.toFixed(6)}分 → 歩いておｋ (${formatTime(nextTrain)}発)`;
     cls = 'walk';
   }
   else if (diffMin >= RUN_TIME) {
-    text = `あと ${diffMin.toFixed(1)}分 → 走ればOK！ (${formatTime(nextTrain)}発)`;
+    text = `あと ${diffMin.toFixed(4)}分 → 走れ！!! (${formatTime(nextTrain)}発)`;
     cls = 'run';
   }
   else {
-    text = `あと ${diffMin.toFixed(1)}分 → 残念、間に合いません (${formatTime(nextTrain)}発)`;
+    text = `あと ${diffMin.toFixed(3)}分 → あきらめろ (${formatTime(nextTrain)}発)`;
     cls = 'miss';
   }
 
