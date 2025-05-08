@@ -1,6 +1,6 @@
 // 歩く・走る所要時間（分）
-const WALK_TIME = 3;
-const RUN_TIME  = 2;
+const WALK_TIME = 6;
+const RUN_TIME  = 4;
 
 // ボタンと結果表示領域
 const btn    = document.getElementById('checkBtn');
@@ -27,7 +27,7 @@ async function checkTime() {
   }
 
   if (!nextTrain) {
-    result.textContent = '本日の運行は終了しました';
+    result.textContent = '終電、なくなっちゃったね///';
     result.className = 'miss';
     return;
   }
