@@ -2,40 +2,10 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Tsrumiono Dash!</title>
+  <title>Tsurumiono Dash!</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-    body { font-family: sans-serif; text-align: center; padding: 1em; }
-    #result { margin: 2em 0; font-size: 1.5em; padding: 1em; border-radius: 8px; }
-    .walk { background: #4caf50; color: #fff; }   /* 緑 */
-    .run  { background: #ff9800; color: #fff; }   /* 黄橙 */
-    .miss { background: #f44336; color: #fff; }   /* 赤 */
-    button {
-      font-size: 1em;
-      padding: 0.5em 1em;
-    }
-    #checkBtn {
-      color: #fff;
-      text-shadow: 0 -1px 0 rgba(0,0,0,0.15);
-      background-color: #ffb133;
-      background-image: linear-gradient(to bottom, #ffb133, #f37318);
-      border: 1px solid #e15e04;
-      border-radius: 25px;
-      box-shadow: 0 1px 1px 0 rgba(0,0,0,0.10), 0 5px 25px rgba(0,0,0,.15);
-      display: inline-block;
-      font-weight: 500;
-      padding: 12px 32px;
-      text-align: center;
-      text-decoration: none;
-      transition: box-shadow .2s linear, background-color .2s linear;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    #checkBtn:hover {
-      background-color: #f37318;
-      box-shadow: 0 5px 25px rgba(0,0,0,.30);
-    }
-  </style>
+  <!-- CSS の外部ファイルを読み込む -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Tsurumiono Dash!</h1>
@@ -43,6 +13,7 @@
   <div id="result" class="">--</div>
   <button id="checkBtn">判定する</button>
 
+  <!-- JavaScript は既存の main.js を読み込み -->
   <script src="main.js"></script>
 </body>
 </html>
