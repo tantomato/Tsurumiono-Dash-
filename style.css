@@ -27,32 +27,52 @@ body {
   color: #fff;
 }
 
-/* 判定ボタン共通スタイル */
-button {
-  font-size: 1em;
-  padding: 0.5em 1em;
-}
-
-/* 「判定する」ボタン固有スタイル */
+/* 学マス風オレンジグラデーションボタン */
 #checkBtn {
-  color: #fff;
-  text-shadow: 0 -1px 0 rgba(0,0,0,0.15);
-  background-color: #ffb133;
-  background-image: linear-gradient(to bottom, #ffb133, #f37318);
-  border: 1px solid #e15e04;
-  border-radius: 25px;
-  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.10), 0 5px 25px rgba(0,0,0,.15);
+  /* 基本的な配置と表示 */
+  position: relative;
   display: inline-block;
+  padding: 12px 30px;
+  
+  /* テキスト関連の設定 */
+  font-family: "IBM Plex Sans JP", sans-serif;
   font-weight: 500;
-  padding: 12px 32px;
+  font-size: 16px;
   text-align: center;
-  text-decoration: none;
-  transition: box-shadow .2s linear, background-color .2s linear;
-  font-size: 1rem;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  
+  /* ボタンの形状 */
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
   cursor: pointer;
+  
+  /* グラデーションの背景 */
+  background: linear-gradient(to right, #FF9A3C, #FF6B3D);
+  
+  /* 枠線のグラデーション表現（疑似要素で実現） */
+  box-shadow: 
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+    0 2px 4px rgba(0, 0, 0, 0.2);
+  
+  /* アニメーション設定 */
+  transition: all 0.3s ease;
 }
 
+/* ホバー時の効果 */
 #checkBtn:hover {
-  background-color: #f37318;
-  box-shadow: 0 5px 25px rgba(0,0,0,.30);
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5),
+    0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* クリック時の効果 */
+#checkBtn:active {
+  transform: translateY(1px);
+  box-shadow: 
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+    0 1px 2px rgba(0, 0, 0, 0.2);
 }
