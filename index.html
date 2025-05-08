@@ -1,84 +1,23 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>鶴見線リアルタイム判定アプリ</title>
+  <title>鶴見線 登校判定アプリ</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-    :root {
-      --walk-color: #4CAF50;
-      --run-color: #FFC107;
-      --miss-color: #F44336;
-    }
-    body {
-      font-family: 'Segoe UI', system-ui;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
-      background: #f8f9fa;
-    }
-    .header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    #status-box {
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      margin-bottom: 2rem;
-      transition: all 0.3s ease;
-    }
-    #next-trains {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    .train-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .train-item {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #eee;
-    }
-    button {
-      width: 100%;
-      padding: 1rem;
-      background: #2196F3;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
-    button:hover { opacity: 0.9; }
-    .walk-bg { background: var(--walk-color); }
-    .run-bg { background: var(--run-color); }
-    .miss-bg { background: var(--miss-color); }
+    body { font-family: sans-serif; text-align: center; padding: 1em; }
+    #result { margin: 2em 0; font-size: 1.5em; padding: 1em; border-radius: 8px; }
+    .walk { background: #4caf50; color: #fff; }   /* 緑 */
+    .run  { background: #ff9800; color: #fff; }   /* 黄橙 */
+    .miss { background: #f44336; color: #fff; }   /* 赤 */
+    button { font-size: 1em; padding: 0.5em 1em; }
   </style>
 </head>
 <body>
-  <div class="header">
-    <h1>🚃 鶴見線 乗車判定</h1>
-    <p>鶴見小野駅発 鶴見駅行き</p>
-  </div>
-
-  <div id="status-box">
-    <div id="current-time" style="text-align: center; margin-bottom: 1rem;"></div>
-    <div id="result-message" style="font-size: 1.5rem; text-align: center;"></div>
-  </div>
-
-  <div id="next-trains">
-    <h3 style="margin-top: 0;">次発の電車</h3>
-    <ul class="train-list" id="train-list"></ul>
-  </div>
-
-  <button onclick="location.reload()">🔄 最新情報に更新</button>
+  <h1>鶴見線 登校判定アプリ</h1>
+  <p>現在時刻と次発の鶴見線を比較し、<br>「歩いてOK」「走ればOK」「間に合わない」を判定します</p>
+  <div id="result" class="">--</div>
+  <button id="checkBtn">判定する</button>
 
   <script src="main.js"></script>
 </body>
