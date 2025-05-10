@@ -84,7 +84,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 1em 2em;
-  min-height: 2em;
+  min-height: 1em;
   font-size: 1.8em;
   color: #fff;                /* 文字色を常に白に */
   border-radius: 18px;        /* 長方形＋大きめ角丸 */
