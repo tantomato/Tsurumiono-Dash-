@@ -76,26 +76,25 @@ body {
 }
 
 /*----------------------------------------
-  ステータスボックス（結果表示）- 丸ピル型
+  ステータスボックス（結果表示）- 丸ピル型に上書き
 ----------------------------------------*/
 .result {
-  display: inline-block;       /* pill 形に馴染む display */
+  display: inline-block;      /* 幅を内容にフィット */
   vertical-align: middle;
   padding: 1em 2em;
   font-size: 1.8em;
-  color: #fff;                 /* テキストは白 */
-  background: #75bbf0;         /* デフォルト色（Walk 用） */
-  border-radius: 9999px;       /* 高度な丸みでピル状に */
-  overflow: hidden;            /* 角丸をクリップ */
+  color: #fff;                /* 白文字 */
+  background: #75bbf0;        /* デフォルト色（Walk用） */
+  border-radius: 9999px;      /* 完全なピル型 */
+  overflow: hidden;           /* 丸くクリップ */
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   margin: 1em auto;
-  transition: transform 0.2s;
   text-align: center;
+  transition: transform 0.2s;
 }
 .result:hover {
   transform: translateY(-3px);
 }
-/* アイコンとテキストをセンター寄せ */
 .result::before {
   content: '';
   display: inline-block;
@@ -104,7 +103,7 @@ body {
   vertical-align: middle;
 }
 
-/* Walk (歩いておｋ) */
+/* Walk */
 .walk {
   background: #75bbf0;
 }
@@ -112,7 +111,7 @@ body {
   content: '🚶';
 }
 
-/* Dash!!! (走れ！) */
+/* Dash */
 .run {
   background: #ffd080;
 }
@@ -120,13 +119,14 @@ body {
   content: '🏃';
 }
 
-/* Give up!!!!! (あきらめろ) */
+/* Give up */
 .miss {
   background: #ff81b6;
 }
 .miss::before {
   content: '😞';
 }
+
 
 /*----------------------------------------
   ボタンラップ & ボタン
