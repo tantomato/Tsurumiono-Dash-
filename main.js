@@ -34,22 +34,22 @@ async function checkTime() {
   let status, cls;
 
   if (diffMin >= WALK_TIME) {
-    status = '歩いておｋ';
+    status = 'Walk';
     cls    = 'walk';
   }
   else if (diffMin >= RUN_TIME) {
-    status = '走れ！';
+    status = 'Dash!!!';
     cls    = 'run';
   }
   else {
-    status = 'あきらめろ';
+    status = 'Give up!!!!!';
     cls    = 'miss';
   }
 
   // ボックス外のテキスト
-  let infoText = `あと ${diffMin.toFixed(1)}分 (${formatTime(nextTrain)}発)`;
+  let infoText = `あと ${diffMin.toFixed(1)}min (${formatTime(nextTrain)} Dep.)`;
   if (secondTrain) {
-    infoText += ` ／ 次の次 → ${formatTime(secondTrain)}`;
+    infoText += ` ／ Following → ${formatTime(secondTrain)}`;
   }
   info.textContent   = infoText;
 
