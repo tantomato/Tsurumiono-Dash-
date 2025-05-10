@@ -19,7 +19,6 @@ body {
   padding-bottom: 2em;
   text-align: center;
   box-sizing: border-box;
-  overflow: visible !important;
 }
 
 /*----------------------------------------
@@ -29,146 +28,87 @@ body {
   position: relative;
   background: rgba(255,255,255,0.4);
   backdrop-filter: blur(10px);
-  padding: 2.5em 1.5em 1.5em;
-  border-radius: 0 16px 0 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-  color: #888;
-  margin-bottom: 2em;
-  overflow: visible !important;
+  padding: 2em 1.2em;
+  border-radius: 0 12px 0 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  color: #666;
+  margin-bottom: 1.5em;
 }
 
 /*----------------------------------------
-  タイトルボックス共通スタイル
+  タイトルボックス
 ----------------------------------------*/
-.title-box {
+.card .title-box {
   position: absolute;
   bottom: 100%;
   left: 0;
-  padding: 0.4em 1em;
-  color: #fff;
-  font-size: 1em;
-  font-weight: 500;
-  border-radius: 20px;
+  padding: 0.3em 1em;
+  font-size: 0.9em;
+  border-radius: 16px;
   border-bottom-left-radius: 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  z-index: 10;
-}
-
-.main-title {
-  background: linear-gradient(135deg, #f8d518, #ffb6d9) !important;
-}
-.intro-title {
-  background: linear-gradient(135deg, #8fdd53, #cee220) !important;
-}
-.credits-title {
-  background: linear-gradient(135deg, #cfe1e4, #92cbd8) !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 /*----------------------------------------
-  ステータスボックス（結果表示）完全丸形保証
+  ステータスボックス（コンパクト化）
 ----------------------------------------*/
-.result {
-  display: inline-block !important;
-  min-width: 200px !important;
-  padding: 1em 2em !important;
-  border-radius: 100px !important;
-  overflow: hidden !important;
-  box-sizing: border-box;
-  font-size: 1.8em !important;
-  color: #fff !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
-  margin: 1em auto !important;
-  transition: transform 0.2s !important;
-}
-
-.walk {
-  background: #75bbf0 !important;
-}
-.walk::before {
-  content: '🚶' !important;
-}
-
-.run {
-  background: #ffd080 !important;
-}
-.run::before {
-  content: '🏃' !important;
-}
-
-.miss {
-  background: #ff81b6 !important;
-}
-.miss::before {
-  content: '😞' !important;
-}/*----------------------------------------
-  ボタンラップ & ボタン
-----------------------------------------*/
-.btn-wrap {
-  margin-bottom: 3em;
-}
-#checkBtn {
-  padding: 14px 38px;
-  font-size: 16px;
-  color: #fff;
-  background: linear-gradient(45deg, #ff9a3c, #ff6b3d);
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,0.4),
-    0 4px 12px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
-}
-#checkBtn:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,0.6),
-    0 6px 16px rgba(0,0,0,0.25);
-}
-#checkBtn:active {
-  transform: translateY(1px);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,0.4),
-    0 2px 4px rgba(0,0,0,0.2);
-}
-
-/*----------------------------------------
-  説明用カード（intro-card）
-----------------------------------------*/
-.intro-card {
-  padding: 1.5em 1em 1em;
-  margin-bottom: 3em;  /* “How it works” と Credits の間隔を拡大 */
-}
-.intro-content {
-  margin-top: 0.8em;
-  font-size: 1em;
-  line-height: 1.5;
-  text-align: left;
-}
-
-/*----------------------------------------
-  クレジット用カード（credits-card）
-----------------------------------------*/
-.credits-card {
-  padding: 1.5em 1em 1em;
-}
-.credits-content {
-  margin-top: 0.8em;
-  font-size: 1em;
-  line-height: 1.5;
-  text-align: left;
-}
-.credits-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.credits-list li {
-  margin-bottom: 0.6em;
-}
-.credits-list strong {
+.card .result {
   display: inline-block;
-  width: 150px;
-  font-weight: 500;
-  color: #444;
+  padding: 0.8em 1.5em;
+  border-radius: 8px;
+  font-size: 1.2em;
+  margin: 0.8em auto;
+  min-width: 160px;
+  transition: all 0.2s;
+}
+
+.card .result::before {
+  font-size: 0.9em;
+  margin-right: 0.4em;
+}
+
+/* カラー設定 */
+.card .result.walk { background: #75bbf0; }
+.card .result.run { background: #ffd080; }
+.card .result.miss { background: #ff81b6; }
+
+/* モバイル調整 */
+@media (max-width: 480px) {
+  .card {
+    padding: 1.5em 1em;
+  }
+  
+  .card .result {
+    padding: 0.6em 1.2em;
+    font-size: 1.1em;
+    min-width: 140px;
+  }
+}
+
+/*----------------------------------------
+  ボタンスタイル
+----------------------------------------*/
+#checkBtn {
+  padding: 12px 32px;
+  font-size: 14px;
+  border-radius: 24px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+/*----------------------------------------
+  その他要素
+----------------------------------------*/
+.info {
+  margin: 0.8em 0;
+  font-size: 1em;
+}
+
+.intro-content p {
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.credits-list li {
+  margin-bottom: 0.5em;
+  font-size: 0.9em;
 }
