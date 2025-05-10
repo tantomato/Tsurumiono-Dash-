@@ -83,7 +83,7 @@ body {
   ボタンラップ & ボタン
 ----------------------------------------*/
 .btn-wrap {
-  margin-bottom: 2em;  /* ボタンと説明用カードの間隔 */
+  margin-bottom: 4em;  /* ボタンと説明用カードの間隔 */
 }
 #checkBtn {
   padding: 14px 38px;
