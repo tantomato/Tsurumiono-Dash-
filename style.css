@@ -52,17 +52,17 @@ body {
   z-index: 10;
 }
 
-/* メインカードのタイトルボックス */
+/* メインカードのタイトル */
 .main-title {
   background: linear-gradient(135deg, #f8d518, #ffb6d9);
 }
 
-/* How it works のタイトルボックス */
+/* How it works のタイトル */
 .intro-title {
   background: linear-gradient(135deg, #8fdd53, #cee220);
 }
 
-/* クレジット用のタイトルボックス */
+/* クレジット用のタイトル */
 .credits-title {
   background: linear-gradient(135deg, #cfe1e4, #92cbd8);
 }
@@ -86,8 +86,8 @@ body {
   padding: 1em 2em;
   min-height: 3em;
   font-size: 1.8em;
-  color: #fff;
-  border-radius: 30px;
+  color: #fff;               /* テキストは常に白 */
+  border-radius: 999px;      /* 完全に丸く */
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   overflow: hidden;
   margin: 1em auto;
@@ -96,7 +96,6 @@ body {
 .result:hover {
   transform: translateY(-3px);
 }
-/* アイコン用 */
 .result::before {
   content: '';
   display: inline-block;
@@ -104,25 +103,25 @@ body {
   font-size: 1.2em;
 }
 
-/* Walk */
+/* Walk (歩いておｋ) */
 .walk {
-  background: linear-gradient(135deg, #7ccb78, #3ca34d);
+  background: #75bbf0;
 }
 .walk::before {
   content: '🚶';
 }
 
-/* Dash */
+/* Dash!!! (走れ！) */
 .run {
-  background: linear-gradient(135deg, #ffd54f, #ff9800);
+  background: #ffd080;
 }
 .run::before {
   content: '🏃';
 }
 
-/* Give up */
+/* Give up!!!!! (あきらめろ) */
 .miss {
-  background: linear-gradient(135deg, #e57373, #d32f2f);
+  background: #ff81b6;
 }
 .miss::before {
   content: '😞';
