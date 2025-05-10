@@ -1,12 +1,7 @@
-/* CSS内でフォントを指定 */
+/* style.css の最初でまとめて定義 */
 body {
   font-family: 'IBM Plex Sans JP', sans-serif;
   font-weight: 500;
-}
-
-/* ベーススタイル */
-body {
-  font-family: sans-serif;
   text-align: center;
   padding: 1em;
 }
@@ -33,52 +28,37 @@ body {
   color: #fff;
 }
 
-/* 学マス風オレンジグラデーションボタン */
+/* ボタン周り */
 #checkBtn {
-  /* 基本的な配置と表示 */
   position: relative;
   display: inline-block;
   padding: 12px 30px;
-  
-  /* テキスト関連の設定 */
-  font-family: "IBM Plex Sans JP", sans-serif;
+  font-family: 'IBM Plex Sans JP', sans-serif;
   font-weight: 500;
   font-size: 16px;
   text-align: center;
   color: #ffffff;
   letter-spacing: 0.05em;
-  
-  /* ボタンの形状 */
   border: none;
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
-  
-  /* グラデーションの背景 */
   background: linear-gradient(to right, #FF9A3C, #FF6B3D);
-  
-  /* 枠線のグラデーション表現（疑似要素で実現） */
-  box-shadow: 
+  box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.3),
     0 2px 4px rgba(0, 0, 0, 0.2);
-  
-  /* アニメーション設定 */
   transition: all 0.3s ease;
 }
-
-/* ホバー時の効果 */
 #checkBtn:hover {
   opacity: 0.9;
   transform: translateY(-2px);
-  box-shadow: 
+  box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.5),
     0 4px 8px rgba(0, 0, 0, 0.25);
 }
-
-/* クリック時の効果 */
 #checkBtn:active {
   transform: translateY(1px);
-  box-shadow: 
+  box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.3),
     0 1px 2px rgba(0, 0, 0, 0.2);
 }
