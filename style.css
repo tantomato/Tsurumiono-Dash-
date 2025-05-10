@@ -19,6 +19,7 @@ body {
   padding-bottom: 2em;
   text-align: center;
   box-sizing: border-box;
+  overflow: visible;     /* 親要素の overflow を解除 */
 }
 
 /*----------------------------------------
@@ -33,6 +34,7 @@ body {
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
   color: #888;
   margin-bottom: 2em;
+  overflow: visible;     /* 親要素の overflow を解除 */
 }
 
 /*----------------------------------------
@@ -87,15 +89,16 @@ body {
   min-height: 3em;
   font-size: 1.8em;
   color: #fff;               /* テキストは常に白 */
-  border-radius: 999px;      /* 完全に丸く */
+  border-radius: 9999px;     /* 完全に丸いピル型 */
+  overflow: hidden;          /* 角丸をクリップ */
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  overflow: hidden;
   margin: 1em auto;
   transition: transform 0.2s;
 }
 .result:hover {
   transform: translateY(-3px);
 }
+/* アイコン用 */
 .result::before {
   content: '';
   display: inline-block;
