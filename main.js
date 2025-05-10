@@ -49,7 +49,7 @@ async function checkTime() {
   // ボックス外のテキスト
   let infoText = `あと ${diffMin.toFixed(1)}min (${formatTime(nextTrain)} Dep.)`;
   if (secondTrain) {
-    infoText += ` ／ Following → ${formatTime(secondTrain)}`;
+    infoText += `<br>Following → ${formatTime(secondTrain)}`;
   }
   info.textContent   = infoText;
 
