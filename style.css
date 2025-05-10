@@ -1,7 +1,10 @@
-/* 全体背景＋カードレイアウト */
+/* ======================
+   全体コンテナ
+   ====================== */
 body {
   margin: 0;
-  min-height: 100vh;
+  width: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,66 +12,86 @@ body {
   font-family: 'IBM Plex Sans JP', sans-serif;
 }
 
-/* カード内のデフォルト文字色をグレーに */
+.container {
+  width: 90%;
+  max-width: 380px;
+}
+
+/* ======================
+   カードスタイル
+   ====================== */
 .card {
+  position: relative;
   background: rgba(255,255,255,0.4);
   backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 2em;
-  text-align: center;
+  padding: 2.5em 1.5em 1.5em;
+  /* TL・BR丸、TR・BLカクカク */
+  border-radius: 16px 0 16px 0;
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-  max-width: 360px;
-  width: 90%;
-  color: #888888;        /* ← ここでカード内テキストをグレーに */
+  color: #888;  /* テキストはグレー */
+  text-align: center;
 }
 
-/* 見出し・説明文もグレーに */
-.card h1,
-.card p {
-  color: inherit;
+/* ======================
+   タイトルボックス
+   ====================== */
+.title-box {
+  position: absolute;
+  top: -20px;    /* カード上辺と接する */
+  left: 20px;    /* カード左端から少し内側に */
+  padding: 0.4em 1em;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(6px);
+  font-size: 1em;
+  font-weight: 500;
+  /* 通常は丸、左下だけスクエア */
+  border-radius: 20px;
+  border-bottom-left-radius: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-/* 判定前テキスト */
+/* ======================
+   説明文・判定前テキスト
+   ====================== */
+.card p,
 .info {
   margin: 1em 0;
-  font-size: 1.2em;
-  /* ↓ inherit で .card のグレーを継承 */
+  font-size: 1.1em;
   color: inherit;
 }
 
-/* 判定結果ボックス */
+/* ======================
+   判定結果ボックス（大きめ）
+   ====================== */
 .result {
   margin: 1em 0;
-  font-size: 1.5em;
-  padding: 0.8em;
-  border-radius: 20px;
-  min-height: 2.2em;
+  font-size: 2em;         /* 大きく */
+  padding: 1.2em;         /* 余白増加 */
+  min-height: 3em;        
   display: flex;
   align-items: center;
   justify-content: center;
-  /* ボックス内は常に白文字 */
-  color: #ffffff;       
+  border-radius: 24px;    /* さらに丸く */
+  color: #fff;            /* 白文字 */
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3);
   transition: background 0.3s;
 }
-.walk   { background: #4caf50; }
-.run    { background: #ff9800; }
-.miss   { background: #f44336; }
+.walk { background: #4caf50; }
+.run  { background: #ff9800; }
+.miss { background: #f44336; }
 
-/* 丸みの強い学マス風グラデーションボタン */
+/* ======================
+   判定ボタン
+   ====================== */
 #checkBtn {
   margin-top: 1em;
-  position: relative;
-  display: inline-block;
-  padding: 12px 36px;
+  padding: 14px 38px;
   font-size: 16px;
-  /* ← ボタンテキストは白を指定 */
-  color: #ffffff;
-  letter-spacing: 0.05em;
+  color: #fff;
+  background: linear-gradient(45deg, #ff9a3c, #ff6b3d);
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  background: linear-gradient(45deg, #ff9a3c, #ff6b3d);
   box-shadow:
     inset 0 0 0 1px rgba(255,255,255,0.4),
     0 4px 12px rgba(0,0,0,0.2);
