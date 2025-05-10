@@ -8,7 +8,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #ffe5b4, #ff9a3c);
+  background: #ffffff;
   font-family: 'IBM Plex Sans JP', sans-serif;
 }
 
