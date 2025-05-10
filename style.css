@@ -15,10 +15,11 @@ body {
 .wrapper {
   width: 90%;
   max-width: 380px;
-  margin-top: 4em;
+  margin-top: 4em;       /* タイトルボックスのはみ出し分を確保 */
   padding-bottom: 2em;
   text-align: center;
   box-sizing: border-box;
+  overflow: visible;
 }
 
 /*----------------------------------------
@@ -28,87 +29,174 @@ body {
   position: relative;
   background: rgba(255,255,255,0.4);
   backdrop-filter: blur(10px);
-  padding: 2em 1.2em;
-  border-radius: 0 12px 0 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-  color: #666;
-  margin-bottom: 1.5em;
+  padding: 2.5em 1.5em 1.5em;
+  border-radius: 0 16px 0 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  color: #888;
+  margin-bottom: 2em;
+  overflow: visible;
 }
 
 /*----------------------------------------
-  タイトルボックス
+  タイトルボックス共通スタイル
 ----------------------------------------*/
-.card .title-box {
+.title-box {
   position: absolute;
   bottom: 100%;
   left: 0;
-  padding: 0.3em 1em;
-  font-size: 0.9em;
-  border-radius: 16px;
+  padding: 0.4em 1em;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 500;
+  border-radius: 20px;
   border-bottom-left-radius: 0;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 10;
+}
+
+/* メインカードのタイトル */
+.main-title {
+  background: linear-gradient(135deg, #f8d518, #ffb6d9);
+}
+/* How it works のタイトル */
+.intro-title {
+  background: linear-gradient(135deg, #8fdd53, #cee220);
+}
+/* クレジット用のタイトル */
+.credits-title {
+  background: linear-gradient(135deg, #cfe1e4, #92cbd8);
 }
 
 /*----------------------------------------
-  ステータスボックス（コンパクト化）
-----------------------------------------*/
-.card .result {
-  display: inline-block;
-  padding: 0.8em 1.5em;
-  border-radius: 8px;
-  font-size: 1.2em;
-  margin: 0.8em auto;
-  min-width: 160px;
-  transition: all 0.2s;
-}
-
-.card .result::before {
-  font-size: 0.9em;
-  margin-right: 0.4em;
-}
-
-/* カラー設定 */
-.card .result.walk { background: #75bbf0; }
-.card .result.run { background: #ffd080; }
-.card .result.miss { background: #ff81b6; }
-
-/* モバイル調整 */
-@media (max-width: 480px) {
-  .card {
-    padding: 1.5em 1em;
-  }
-  
-  .card .result {
-    padding: 0.6em 1.2em;
-    font-size: 1.1em;
-    min-width: 140px;
-  }
-}
-
-/*----------------------------------------
-  ボタンスタイル
-----------------------------------------*/
-#checkBtn {
-  padding: 12px 32px;
-  font-size: 14px;
-  border-radius: 24px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-}
-
-/*----------------------------------------
-  その他要素
+  判定前テキスト
 ----------------------------------------*/
 .info {
-  margin: 0.8em 0;
+  margin: 1em 0;
+  font-size: 1.1em;
+}
+
+/*----------------------------------------
+  ステータスボックス（結果表示）- 丸ピル型
+----------------------------------------*/
+.result {
+  display: inline-block;       /* pill 形に馴染む display */
+  vertical-align: middle;
+  padding: 1em 2em;
+  font-size: 1.8em;
+  color: #fff;                 /* テキストは白 */
+  background: #75bbf0;         /* デフォルト色（Walk 用） */
+  border-radius: 9999px;       /* 高度な丸みでピル状に */
+  overflow: hidden;            /* 角丸をクリップ */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  margin: 1em auto;
+  transition: transform 0.2s;
+  text-align: center;
+}
+.result:hover {
+  transform: translateY(-3px);
+}
+/* アイコンとテキストをセンター寄せ */
+.result::before {
+  content: '';
+  display: inline-block;
+  margin-right: 0.5em;
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+
+/* Walk (歩いておｋ) */
+.walk {
+  background: #75bbf0;
+}
+.walk::before {
+  content: '🚶';
+}
+
+/* Dash!!! (走れ！) */
+.run {
+  background: #ffd080;
+}
+.run::before {
+  content: '🏃';
+}
+
+/* Give up!!!!! (あきらめろ) */
+.miss {
+  background: #ff81b6;
+}
+.miss::before {
+  content: '😞';
+}
+
+/*----------------------------------------
+  ボタンラップ & ボタン
+----------------------------------------*/
+.btn-wrap {
+  margin-bottom: 3em;
+}
+#checkBtn {
+  padding: 14px 38px;
+  font-size: 16px;
+  color: #fff;
+  background: linear-gradient(45deg, #ff9a3c, #ff6b3d);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.4),
+    0 4px 12px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+#checkBtn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.6),
+    0 6px 16px rgba(0,0,0,0.25);
+}
+#checkBtn:active {
+  transform: translateY(1px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.4),
+    0 2px 4px rgba(0,0,0,0.2);
+}
+
+/*----------------------------------------
+  説明用カード（intro-card）
+----------------------------------------*/
+.intro-card {
+  padding: 1.5em 1em 1em;
+  margin-bottom: 3em;  /* “How it works” と Credits の間隔を拡大 */
+}
+.intro-content {
+  margin-top: 0.8em;
   font-size: 1em;
+  line-height: 1.5;
+  text-align: left;
 }
 
-.intro-content p {
-  font-size: 0.9em;
-  line-height: 1.4;
+/*----------------------------------------
+  クレジット用カード（credits-card）
+----------------------------------------*/
+.credits-card {
+  padding: 1.5em 1em 1em;
 }
-
+.credits-content {
+  margin-top: 0.8em;
+  font-size: 1em;
+  line-height: 1.5;
+  text-align: left;
+}
+.credits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 .credits-list li {
-  margin-bottom: 0.5em;
-  font-size: 0.9em;
+  margin-bottom: 0.6em;
+}
+.credits-list strong {
+  display: inline-block;
+  width: 150px;
+  font-weight: 500;
+  color: #444;
 }
