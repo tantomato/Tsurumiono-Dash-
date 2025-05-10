@@ -2,24 +2,23 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <!-- Google Fonts の先読み（推奨） -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- IBM Plex Sans JP Medium を読み込む -->
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@500&display=swap"
-        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@500&display=swap" rel="stylesheet">
   <title>Tsurumiono Dash!</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <!-- CSS の外部ファイルを読み込む -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Tsurumiono Dash!</h1>
-  <p>次の鶴見線（鶴見駅方面）に間に合うか判定します。</p>
-  <div id="result" class="">--</div>
-  <button id="checkBtn">判定する</button>
-
-  <!-- JavaScript は既存の main.js を読み込み -->
+  <div class="card">
+    <h1>Tsurumiono Dash!</h1>
+    <p>次の鶴見線（鶴見駅方面）に間に合うか判定します。</p>
+    <!-- 判定前テキスト -->
+    <div id="info" class="info">--</div>
+    <!-- 判定結果のみボックス内 -->
+    <div id="result" class="result">--</div>
+    <button id="checkBtn">判定する</button>
+  </div>
   <script src="main.js"></script>
 </body>
 </html>
