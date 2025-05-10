@@ -15,11 +15,11 @@ body {
 .wrapper {
   width: 90%;
   max-width: 380px;
-  margin-top: 4em;       /* タイトルボックスのはみ出し分を確保 */
+  margin-top: 4em;
   padding-bottom: 2em;
   text-align: center;
   box-sizing: border-box;
-  overflow: visible;
+  overflow: visible !important;
 }
 
 /*----------------------------------------
@@ -34,7 +34,7 @@ body {
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
   color: #888;
   margin-bottom: 2em;
-  overflow: visible;
+  overflow: visible !important;
 }
 
 /*----------------------------------------
@@ -54,81 +54,53 @@ body {
   z-index: 10;
 }
 
-/* メインカードのタイトル */
 .main-title {
-  background: linear-gradient(135deg, #f8d518, #ffb6d9);
+  background: linear-gradient(135deg, #f8d518, #ffb6d9) !important;
 }
-/* How it works のタイトル */
 .intro-title {
-  background: linear-gradient(135deg, #8fdd53, #cee220);
+  background: linear-gradient(135deg, #8fdd53, #cee220) !important;
 }
-/* クレジット用のタイトル */
 .credits-title {
-  background: linear-gradient(135deg, #cfe1e4, #92cbd8);
+  background: linear-gradient(135deg, #cfe1e4, #92cbd8) !important;
 }
 
 /*----------------------------------------
-  判定前テキスト
-----------------------------------------*/
-.info {
-  margin: 1em 0;
-  font-size: 1.1em;
-}
-
-/*----------------------------------------
-  ステータスボックス（結果表示）- 丸ピル型に上書き
+  ステータスボックス（結果表示）完全丸形保証
 ----------------------------------------*/
 .result {
-  display: inline-block;      /* 幅を内容にフィット */
-  vertical-align: middle;
-  padding: 1em 2em;
-  font-size: 1.8em;
-  color: #fff;                /* 白文字 */
-  background: #75bbf0;        /* デフォルト色（Walk用） */
-  border-radius: 9999px;      /* 完全なピル型 */
-  overflow: hidden;           /* 丸くクリップ */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  margin: 1em auto;
-  text-align: center;
-  transition: transform 0.2s;
-}
-.result:hover {
-  transform: translateY(-3px);
-}
-.result::before {
-  content: '';
-  display: inline-block;
-  margin-right: 0.5em;
-  font-size: 1.2em;
-  vertical-align: middle;
+  display: inline-block !important;
+  min-width: 200px !important;
+  padding: 1em 2em !important;
+  border-radius: 100px !important;
+  overflow: hidden !important;
+  box-sizing: border-box;
+  font-size: 1.8em !important;
+  color: #fff !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+  margin: 1em auto !important;
+  transition: transform 0.2s !important;
 }
 
-/* Walk */
 .walk {
-  background: #75bbf0;
+  background: #75bbf0 !important;
 }
 .walk::before {
-  content: '🚶';
+  content: '🚶' !important;
 }
 
-/* Dash */
 .run {
-  background: #ffd080;
+  background: #ffd080 !important;
 }
 .run::before {
-  content: '🏃';
+  content: '🏃' !important;
 }
 
-/* Give up */
 .miss {
-  background: #ff81b6;
+  background: #ff81b6 !important;
 }
 .miss::before {
-  content: '😞';
-}
-
-
-/*----------------------------------------
+  content: '😞' !important;
+}/*----------------------------------------
   ボタンラップ & ボタン
 ----------------------------------------*/
 .btn-wrap {
