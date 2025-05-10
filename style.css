@@ -1,48 +1,64 @@
-/*----------------------------------------
-  全体設定
-----------------------------------------*/
+/* ---------------------------------------------
+   全体設定
+--------------------------------------------- */
 body {
   margin: 0;
   padding: 0;
-  background: #ffffff;      /* 背景は白 */
+  background: #ffffff;
   font-family: 'IBM Plex Sans JP', sans-serif;
   display: flex;
   justify-content: center;
-  align-items: flex-start;  /* 上寄せ配置 */
+  align-items: flex-start;
   min-height: 100vh;
 }
 .wrapper {
   width: 90%;
   max-width: 380px;
-  /* タイトルボックスがはみ出しても見切れないように上余白を確保 */
   margin-top: 4em;
   padding-bottom: 2em;
-  box-sizing: border-box;
   text-align: center;
+  box-sizing: border-box;
 }
 
-/*----------------------------------------
-  カード共通スタイル
-----------------------------------------*/
+/* ---------------------------------------------
+   カード共通スタイル
+--------------------------------------------- */
 .card {
   position: relative;
   background: rgba(255,255,255,0.4);
   backdrop-filter: blur(10px);
   padding: 2.5em 1.5em 1.5em;
-  /* 左上 & 右下：カクカク、右上 & 左下：丸く */
   border-radius: 0 16px 0 16px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
   color: #888;
-  margin-bottom: 2em;  /* カード同士、カードとボタンの間隔 */
+  margin-bottom: 2em;
 }
 
-/* 判定前テキスト */
+/* ---------------------------------------------
+   タイトルボックス共通スタイル
+--------------------------------------------- */
+.title-box {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  padding: 0.4em 1em;
+  background: linear-gradient(135deg, #f8d518, #ffb6d9);
+  color: #fff;
+  font-size: 1em;
+  font-weight: 500;
+  border-radius: 20px;
+  border-bottom-left-radius: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 10;
+}
+
+/* ---------------------------------------------
+   判定前テキスト・結果ボックス
+--------------------------------------------- */
 .info {
   margin: 1em 0;
   font-size: 1.1em;
 }
-
-/* 判定結果ボックス */
 .result {
   margin: 1em 0;
   font-size: 2em;
@@ -60,30 +76,11 @@ body {
 .run  { background: #ff9800; }
 .miss { background: #f44336; }
 
-/*----------------------------------------
-  タイトルボックス共通スタイル
-----------------------------------------*/
-.title-box {
-  position: absolute;
-  bottom: 100%;        /* カードの上辺に接触 */
-  left: 0;
-  padding: 0.4em 1em;
-  background: linear-gradient(135deg, #f8d518, #ffb6d9);
-  color: #fff;
-  font-size: 1em;
-  font-weight: 500;
-  border-radius: 20px;
-  border-bottom-left-radius: 0;  /* 左下だけカクカク */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  margin-bottom: 0;
-  z-index: 10;         /* 前面に出す */
-}
-
-/*----------------------------------------
-  ボタンラップ & ボタン
-----------------------------------------*/
+/* ---------------------------------------------
+   ボタンラップ & ボタン
+--------------------------------------------- */
 .btn-wrap {
-  margin-bottom: 4em;  /* ボタンと説明用カードの間隔 */
+  margin-bottom: 3em;
 }
 #checkBtn {
   padding: 14px 38px;
@@ -111,17 +108,42 @@ body {
     0 2px 4px rgba(0,0,0,0.2);
 }
 
-/*----------------------------------------
-  説明用カード（intro-card）
-----------------------------------------*/
+/* ---------------------------------------------
+   説明用カード（intro-card）
+--------------------------------------------- */
 .intro-card {
-  /* margin-bottom は .card 共通で入っているので不要 */
-  padding: 1.5em 1em 1em;  /* 上部にタイトル分のスペース */
+  padding: 1.5em 1em 1em;
 }
-/* 説明文コンテンツ */
 .intro-content {
   margin-top: 0.8em;
   font-size: 1em;
   line-height: 1.5;
   text-align: left;
+}
+
+/* ---------------------------------------------
+   クレジット用カード（credits-card）
+--------------------------------------------- */
+.credits-card {
+  padding: 1.5em 1em 1em;
+}
+.credits-content {
+  margin-top: 0.8em;
+  font-size: 1em;
+  line-height: 1.5;
+  text-align: left;
+}
+.credits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.credits-list li {
+  margin-bottom: 0.6em;
+}
+.credits-list strong {
+  display: inline-block;
+  width: 150px;
+  font-weight: 500;
+  color: #444;
 }
