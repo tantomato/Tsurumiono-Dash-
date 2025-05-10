@@ -51,7 +51,7 @@ async function checkTime() {
   if (secondTrain) {
     infoText += `<br>Following → ${formatTime(secondTrain)}`;
   }
-  info.textContent   = infoText;
+  info.innerHTML   = infoText;
 
   // ボックス内のステータス
   result.textContent = status;
