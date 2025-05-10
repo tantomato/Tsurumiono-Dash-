@@ -2,33 +2,42 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@500&display=swap"
+        rel="stylesheet">
   <title>Tsurumiono Dash!</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
+  <div class="wrapper">
+    <!-- メインカード -->
     <div class="card">
-      <!-- タイトルボックス -->
       <div class="title-box">Tsurumiono Dash!</div>
-
-      <!-- 説明文 -->
-      <p>次の鶴見線（鶴見駅方面）に間に合うか判定します。</p>
-
-      <!-- 判定前テキスト -->
       <div id="info" class="info">--</div>
-
-      <!-- 判定結果ボックス -->
       <div id="result" class="result">--</div>
+    </div>
 
-      <!-- 判定ボタン -->
-      <button id="checkBtn">判定する</button>
+    <!-- ボタン -->
+    <div class="btn-wrap">
+      <button id="checkBtn">Check</button>
+    </div>
+
+    <!-- 説明用カード -->
+    <div class="intro-card card">
+      <div class="title-box">How it works</div>
+      <div class="intro-content">
+        <p>
+          次の鶴見線（鶴見駅方面）の発車時刻から、お手持ちの移動スピードで間に合うかどうかをチェックします。
+        </p>
+      </div>
     </div>
   </div>
 
+  <!-- JavaScript -->
   <script src="main.js"></script>
 </body>
 </html>
