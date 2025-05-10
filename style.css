@@ -1,64 +1,76 @@
-/* style.css の最初でまとめて定義 */
+/* 全体背景＋カードレイアウト */
 body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ffe5b4, #ff9a3c);
   font-family: 'IBM Plex Sans JP', sans-serif;
-  font-weight: 500;
+}
+.card {
+  background: rgba(255,255,255,0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2em;
   text-align: center;
-  padding: 1em;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  max-width: 360px;
+  width: 90%;
 }
 
-/* 結果表示エリア */
-#result {
-  margin: 2em 0;
+/* 判定前テキスト */
+.info {
+  margin: 1em 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+/* 判定結果ボックス */
+.result {
+  margin: 1em 0;
   font-size: 1.5em;
-  padding: 1em;
-  border-radius: 8px;
+  padding: 0.8em;
+  border-radius: 20px;
+  min-height: 2.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3);
+  transition: background 0.3s;
 }
+.walk   { background: #4caf50; }
+.run    { background: #ff9800; }
+.miss   { background: #f44336; }
 
-/* 判定結果ごとの色分け */
-.walk {
-  background: #4caf50;
-  color: #fff;
-}
-.run {
-  background: #ff9800;
-  color: #fff;
-}
-.miss {
-  background: #f44336;
-  color: #fff;
-}
-
-/* ボタン周り */
+/* 丸みの強い学マス風グラデーションボタン */
 #checkBtn {
+  margin-top: 1em;
   position: relative;
   display: inline-block;
-  padding: 12px 30px;
-  font-family: 'IBM Plex Sans JP', sans-serif;
-  font-weight: 500;
+  padding: 12px 36px;
   font-size: 16px;
-  text-align: center;
   color: #ffffff;
   letter-spacing: 0.05em;
   border: none;
-  border-radius: 8px;
-  overflow: hidden;
+  border-radius: 30px;
   cursor: pointer;
-  background: linear-gradient(to right, #FF9A3C, #FF6B3D);
+  background: linear-gradient(45deg, #ff9a3c, #ff6b3d);
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.3),
-    0 2px 4px rgba(0, 0, 0, 0.2);
+    inset 0 0 0 1px rgba(255,255,255,0.4),
+    0 4px 12px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
 }
 #checkBtn:hover {
-  opacity: 0.9;
   transform: translateY(-2px);
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.5),
-    0 4px 8px rgba(0, 0, 0, 0.25);
+    inset 0 0 0 1px rgba(255,255,255,0.6),
+    0 6px 16px rgba(0,0,0,0.25);
 }
 #checkBtn:active {
   transform: translateY(1px);
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.3),
-    0 1px 2px rgba(0, 0, 0, 0.2);
+    inset 0 0 0 1px rgba(255,255,255,0.4),
+    0 2px 4px rgba(0,0,0,0.2);
 }
