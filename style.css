@@ -19,7 +19,7 @@ body {
   padding-bottom: 2em;
   text-align: center;
   box-sizing: border-box;
-  overflow: visible;     /* 親要素の overflow を解除 */
+  overflow: visible;
 }
 
 /*----------------------------------------
@@ -34,7 +34,7 @@ body {
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
   color: #888;
   margin-bottom: 2em;
-  overflow: visible;     /* 親要素の overflow を解除 */
+  overflow: visible;
 }
 
 /*----------------------------------------
@@ -54,17 +54,12 @@ body {
   z-index: 10;
 }
 
-/* メインカードのタイトル */
 .main-title {
   background: linear-gradient(135deg, #f8d518, #ffb6d9);
 }
-
-/* How it works のタイトル */
 .intro-title {
   background: linear-gradient(135deg, #8fdd53, #cee220);
 }
-
-/* クレジット用のタイトル */
 .credits-title {
   background: linear-gradient(135deg, #cfe1e4, #92cbd8);
 }
@@ -78,7 +73,7 @@ body {
 }
 
 /*----------------------------------------
-  ステータスボックス（結果表示）
+  ステータスボックス（結果表示）- 丸ピル型
 ----------------------------------------*/
 .result {
   position: relative;
@@ -88,9 +83,9 @@ body {
   padding: 1em 2em;
   min-height: 3em;
   font-size: 1.8em;
-  color: #fff;               /* テキストは常に白 */
-  border-radius: 9999px;     /* 完全に丸いピル型 */
-  overflow: hidden;          /* 角丸をクリップ */
+  color: #fff;
+  border-radius: 50px;        /* 丸ピル型に */
+  overflow: hidden;           /* しっかりクリップ */
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   margin: 1em auto;
   transition: transform 0.2s;
@@ -98,7 +93,6 @@ body {
 .result:hover {
   transform: translateY(-3px);
 }
-/* アイコン用 */
 .result::before {
   content: '';
   display: inline-block;
@@ -167,7 +161,7 @@ body {
 ----------------------------------------*/
 .intro-card {
   padding: 1.5em 1em 1em;
-  margin-bottom: 3em;  /* “How it works” と Credits の間隔を拡大 */
+  margin-bottom: 3em;
 }
 .intro-content {
   margin-top: 0.8em;
