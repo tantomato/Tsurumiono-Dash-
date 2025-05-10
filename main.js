@@ -55,7 +55,7 @@ async function checkTime() {
 
   // ボックス内のステータス
   result.textContent = status;
-  result.className   = cls;
+  result.className   = ｀result ${cls1}`;
 }
 
 function formatTime(d) {
