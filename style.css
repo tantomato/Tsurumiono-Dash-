@@ -17,37 +17,38 @@ body {
   max-width: 380px;
 }
 
-/* ======================
-   カードスタイル
-   ====================== */
+/* ------ カード本体 ------ */
 .card {
   position: relative;
   background: rgba(255,255,255,0.4);
   backdrop-filter: blur(10px);
   padding: 2.5em 1.5em 1.5em;
-  /* TL・BR丸、TR・BLカクカク */
-  border-radius: 16px 0 16px 0;
+  /* 左上 と 右下 をカクカク（0）、右上 と 左下 を丸く */
+  border-radius: 0 16px 0 16px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-  color: #888;  /* テキストはグレー */
+  color: #888;
   text-align: center;
 }
 
-/* ======================
-   タイトルボックス
-   ====================== */
+/* ------ タイトルボックス ------ */
 .title-box {
   position: absolute;
-  top: -20px;    /* カード上辺と接する */
-  left: 20px;    /* カード左端から少し内側に */
+  /* カードの左上角とタイトルボックスの左下角を合わせる */
+  bottom: 100%;
+  left: 0;
   padding: 0.4em 1em;
-  background: rgba(255,255,255,0.8);
-  backdrop-filter: blur(6px);
+  /* グラデーション背景 */
+  background: linear-gradient(135deg, #f8d518, #ffb6d9);
+  /* 文字は白 */
+  color: #fff;
   font-size: 1em;
   font-weight: 500;
-  /* 通常は丸、左下だけスクエア */
+  /* 基本丸いが、左下だけカクカク */
   border-radius: 20px;
   border-bottom-left-radius: 0;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  /* カードとぴったり接するように余白ナシ */
+  margin-bottom: 0;
 }
 
 /* ======================
