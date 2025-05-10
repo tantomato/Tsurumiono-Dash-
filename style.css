@@ -1,6 +1,6 @@
-/* ---------------------------------------------
-   全体設定
---------------------------------------------- */
+/*----------------------------------------
+  全体設定
+----------------------------------------*/
 body {
   margin: 0;
   padding: 0;
@@ -11,18 +11,19 @@ body {
   align-items: flex-start;
   min-height: 100vh;
 }
+
 .wrapper {
   width: 90%;
   max-width: 380px;
-  margin-top: 4em;
+  margin-top: 4em;       /* タイトルボックスのはみ出し分を確保 */
   padding-bottom: 2em;
   text-align: center;
   box-sizing: border-box;
 }
 
-/* ---------------------------------------------
-   カード共通スタイル
---------------------------------------------- */
+/*----------------------------------------
+  カード共通スタイル
+----------------------------------------*/
 .card {
   position: relative;
   background: rgba(255,255,255,0.4);
@@ -34,15 +35,14 @@ body {
   margin-bottom: 2em;
 }
 
-/* ---------------------------------------------
-   タイトルボックス共通スタイル
---------------------------------------------- */
+/*----------------------------------------
+  タイトルボックス共通スタイル
+----------------------------------------*/
 .title-box {
   position: absolute;
   bottom: 100%;
   left: 0;
   padding: 0.4em 1em;
-  background: linear-gradient(135deg, #f8d518, #ffb6d9);
   color: #fff;
   font-size: 1em;
   font-weight: 500;
@@ -52,33 +52,85 @@ body {
   z-index: 10;
 }
 
-/* ---------------------------------------------
-   判定前テキスト・結果ボックス
---------------------------------------------- */
+/* メインカードのタイトルボックス */
+.main-title {
+  background: linear-gradient(135deg, #f8d518, #ffb6d9);
+}
+
+/* How it works のタイトルボックス */
+.intro-title {
+  background: linear-gradient(135deg, #8fdd53, #cee220);
+}
+
+/* クレジット用のタイトルボックス */
+.credits-title {
+  background: linear-gradient(135deg, #cfe1e4, #92cbd8);
+}
+
+/*----------------------------------------
+  判定前テキスト
+----------------------------------------*/
 .info {
   margin: 1em 0;
   font-size: 1.1em;
 }
+
+/*----------------------------------------
+  ステータスボックス（結果表示）
+----------------------------------------*/
 .result {
-  margin: 1em 0;
-  font-size: 2em;
-  padding: 1.2em;
-  min-height: 3em;
-  display: flex;
+  position: relative;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 24px;
+  padding: 1em 2em;
+  min-height: 3em;
+  font-size: 1.8em;
   color: #fff;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3);
-  transition: background 0.3s;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  overflow: hidden;
+  margin: 1em auto;
+  transition: transform 0.2s;
 }
-.walk { background: #4caf50; }
-.run  { background: #ff9800; }
-.miss { background: #f44336; }
+.result:hover {
+  transform: translateY(-3px);
+}
+/* アイコン用 */
+.result::before {
+  content: '';
+  display: inline-block;
+  margin-right: 0.5em;
+  font-size: 1.2em;
+}
 
-/* ---------------------------------------------
-   ボタンラップ & ボタン
---------------------------------------------- */
+/* Walk */
+.walk {
+  background: linear-gradient(135deg, #7ccb78, #3ca34d);
+}
+.walk::before {
+  content: '🚶';
+}
+
+/* Dash */
+.run {
+  background: linear-gradient(135deg, #ffd54f, #ff9800);
+}
+.run::before {
+  content: '🏃';
+}
+
+/* Give up */
+.miss {
+  background: linear-gradient(135deg, #e57373, #d32f2f);
+}
+.miss::before {
+  content: '😞';
+}
+
+/*----------------------------------------
+  ボタンラップ & ボタン
+----------------------------------------*/
 .btn-wrap {
   margin-bottom: 3em;
 }
@@ -108,11 +160,12 @@ body {
     0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* ---------------------------------------------
-   説明用カード（intro-card）
---------------------------------------------- */
+/*----------------------------------------
+  説明用カード（intro-card）
+----------------------------------------*/
 .intro-card {
   padding: 1.5em 1em 1em;
+  margin-bottom: 3em;  /* “How it works” と Credits の間隔を拡大 */
 }
 .intro-content {
   margin-top: 0.8em;
@@ -121,9 +174,9 @@ body {
   text-align: left;
 }
 
-/* ---------------------------------------------
-   クレジット用カード（credits-card）
---------------------------------------------- */
+/*----------------------------------------
+  クレジット用カード（credits-card）
+----------------------------------------*/
 .credits-card {
   padding: 1.5em 1em 1em;
 }
