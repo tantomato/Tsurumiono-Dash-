@@ -39,6 +39,7 @@ body {
   background: #ffffff;
   font-family: 'IBM Plex Sans JP', sans-serif;
   display: flex;
+  justify-content: column;
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
