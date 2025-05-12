@@ -2,10 +2,10 @@
   ロゴ配置用ヘッダー
 ----------------------------------------*/
 .logo-header {
-  width: 90%;
-  max-width: 380px;       /* .wrapper と同じ幅に揃える */
-  margin: 2rem auto 1.5rem; /* 上下に余白を入れて中央寄せ */
-  text-align: center;
+  width: 100%;
+  max-width: none;       /* .wrapper と同じ幅に揃える */
+  margin: lrem 0; /* 上下に余白を入れて中央寄せ */
+  text-align: left;
 }
 .logo-header {
   flex: 0 0 auto;  /* 収縮しない・成長しない固定サイズアイテムに */
@@ -16,11 +16,11 @@
   ロゴ画像
 ----------------------------------------*/
 .logo-image {
-  display: inline-block;  /* 下の余白を消す */
-  max-width: 180px;       /* 大きくなりすぎないように */
-  width: 60%;             /* ビューポートに対する相対サイズ */
+  display: block;  /* 下の余白を消す */
+  max-width: 100px;       /* 大きくなりすぎないように */
+  width: auto;             /* ビューポートに対する相対サイズ */
   height: auto;           /* アスペクト比を維持 */
-  transition: transform 0.2s;
+  transition: transform .2s;
 }
 .logo-image:hover {
   transform: scale(1.05); /* ホバーでちょっと拡大してアクセント */
