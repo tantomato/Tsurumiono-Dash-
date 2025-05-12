@@ -17,7 +17,7 @@
 ----------------------------------------*/
 .logo-image {
   display: block;  /* 下の余白を消す */
-  max-width: 100px;       /* 大きくなりすぎないように */
+  max-width: 50px;       /* 大きくなりすぎないように */
   width: auto;             /* ビューポートに対する相対サイズ */
   height: auto;           /* アスペクト比を維持 */
   transition: transform .2s;
